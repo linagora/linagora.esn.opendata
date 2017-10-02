@@ -1,0 +1,62 @@
+#opendata_filter{
+    top: 120px;
+    right: 0px;
+    background-color: #f0f0f0;
+    position: fixed;
+    z-index: 3;
+    box-shadow: 0px 0px 10px #888888;
+    border-radius: 4px 0px 0px 4px;
+
+
+    .filter_header{
+    	width : 100%;
+    	height : auto;
+    	margin : auto;
+    	padding-top:5px;
+    	padding-bottom:5px;
+    	font-size : 24px;
+    	color : #666;
+    	cursor : pointer;
+
+    	.icon_collapse{
+    		width : 10%;
+    	}
+    	.filter_title{
+    		width : 65%;
+    	}
+    	.icon_filter{
+    		width : 20%;
+    	}
+    }
+    .filter_header:hover{
+    	background-color: #ebebeb;
+    	color: #000;
+    }
+
+    .filter_body{
+    	width:100%;
+    	height : 300px;
+    	padding-top : 10px;
+    	padding-bottom:10px;
+    	border-top:1px solid #666;
+        overflow-y: scroll;
+
+    	li.filter_item{
+    		width : 100%;
+
+    		span.select2-container{
+    			width: 100% !important;
+    		}
+    	}
+    }
+}
+
+#opendata_filter[collapse = "true"]{
+	width: 3%;
+	height: 45px;
+}
+
+#opendata_filter[collapse = "false"]{
+	width: 20%;
+	height: auto;
+}

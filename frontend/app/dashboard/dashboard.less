@@ -1,0 +1,235 @@
+@import './dashboard-filter/dashboard-filter';
+
+#tienvn #dashboard{
+	width : 95%;
+	height : auto;
+	margin:auto;
+	position : relative;
+
+	.filebar{
+		width: 100%;
+		height:auto;
+		margin-top : 20px;
+
+		li.file-item{
+			width : auto;
+			padding :10px;
+			float:left;
+			color: #337ab7;
+			border-radius: 4px;
+
+			.delete{
+				margin-left : 10px;
+			}
+			.delete:hover{
+				color : #eee;
+			}
+	
+		}
+			li.file-item:hover{
+				color: #777;
+				background-color: #eee;
+			}
+
+			li.active{
+				border : 1px solid #666;
+				border-bottom : 0px;
+				color : #fff;
+				background-color:#337ab7;
+				border : 1px solid #337ab7;
+			}
+
+			li.active:hover{
+				background-color:#337ab7;
+				color : #fff;
+			}
+	}
+
+	.no_data{
+		width:50%;
+		margin:auto;
+		margin-top:100px;
+		color: #666666;
+    	font-size: 1.4em;
+    	text-align: center;
+	}
+
+	.grid{
+		width : 95%;
+		height : auto;
+		margin:auto;
+		margin-top : 20px;
+		margin-bottom : 10px;
+
+		.grid_title{
+			width : 100%;
+			background-color: #ddd;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			text-indent: 10px;
+			font-weight: bold;
+			position:relative;
+
+			.delete{
+				position : absolute;
+				right : 5px;
+				top : 5px;
+				cursor:pointer;
+			}
+			.delete:hover{
+				color:#666;
+			}
+		}
+
+		li.dash-item{
+			border: 1px solid #ccc;
+		}
+
+		li.dash-item .title{
+			width: 100%;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			text-indent: 10px;
+			font-weight: bold;
+			background-color: #ddd;
+			position : relative;
+
+			.text{
+				width : 80%;
+			}
+		}
+		li.dash-item .title .settings{
+			position : absolute;
+			right : 20px;
+			top : 5px;
+			font-size : 20px;
+			cursor : pointer;
+			
+			i:hover{
+				color:#9b9b9b;
+			}
+		}
+	}
+
+	
+	svg > g{
+		width:100%;
+	}
+
+	.modal-dialog{
+		width:90%;
+	}
+	.show-chart{
+		width  : 600px;
+		height : 500px;
+
+		svg{
+			width  : 600px;
+			height : 450px;
+		}
+
+		.title{
+			width : 100%;
+			text-align:center;
+		}
+	}
+	.show-data{
+		width:450px;
+		height : 450px;
+		box-sizing: border-box;
+		
+		.show-title{
+			width : 30%;
+			float:left;
+			margin-right:2%;
+			font-weight: bold;
+			text-align : center;
+			padding-top:5px;
+			padding-bottom:5px;
+			cursor:pointer;
+			border:1px solid #4a4a4a;
+			border-radius:4px;
+		}
+
+		.show-title:hover{
+			opacity:0.7;
+		}
+
+		.active{
+			background-color: #242461;
+    		color: #fff;
+		}
+
+		.show-info{
+			width : auto;
+
+
+			.show-title:hover{
+				background-color:#ececec;
+			}
+
+			.table-content{
+				max-height : 440px;
+				overflow : scroll;
+			}
+
+			.statistic-content{
+				width : 100%;
+				background-color:#f4f4f4;
+				margin-top : 10px;
+				overflow : scroll;
+
+				.statistic_line{
+					width : 100%;
+					margin-top : 10px;
+
+					.statistic-title{
+						width : 50%;
+						float : left;
+						display : inline-block;
+						font-weight:bold;
+						text-indent : 10px;
+					}
+
+					.statistic-value{
+						width : 50%;
+						float : right;
+					}
+				}
+
+				.statistic_data{
+					width : 100%;
+					margin-top : 20px;
+
+					.statistic_data_dataTitle{
+						font-weight:bold;
+						width : 100%;
+						margin-top:10px;
+						text-indent : 10px;
+					}
+
+					.statistic_data_line{
+						width : 85%;
+						margin:auto;
+
+						.statistic-title{
+							width : 50%;
+							float : left;
+							display : inline-block;
+							font-weight:bold;
+						}
+
+						.statistic-value{
+							width : 50%;
+							float : right;
+						}
+
+					}
+				}
+
+			}
+
+		}
+	}
+
+}

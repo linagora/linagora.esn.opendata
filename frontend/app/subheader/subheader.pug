@@ -1,0 +1,14 @@
+#subheader
+	.menu
+		.main-80
+			ul
+				li.menu-item(ng-repeat="item in $ctrl.items" ng-click="$ctrl.itemClick($index)") 
+					.wrap
+						i.font-size-20(class="{{item.icon}}")
+						span {{item.title}}
+						i.mdi.mdi-menu-down.dropdown.font-size-20(ng-if="item.dropdown")
+						br
+						.submenu(ng-if="item.dropdown" ng-class="{displaynone:!item.submenu.show}")
+							ul
+								li.submenu-item(ng-repeat="subitem in item.submenu.menu") {{subitem.title}}
+			.clear

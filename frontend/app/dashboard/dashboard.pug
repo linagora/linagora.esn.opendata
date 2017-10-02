@@ -1,0 +1,118 @@
+#dashboard
+	dashboard-filter
+	.main-95
+		.filebar(ng-class="{displaynone:!$ctrl.hasData}")
+			ul
+				li.file-item(ng-repeat="item in $ctrl.files track by $index" ng-class="{active:$ctrl.isTabActive(item.file_index)}" ng-click="$ctrl.changeTabActive(item.file_index)") {{item.filename}}
+					i.mdi.mdi-close.delete(data-toggle="modal" data-target="#delete-file" ng-click="$ctrl.deleteDataDialog(item)")
+				.clear
+		.no_data(ng-class="{displaynone:$ctrl.hasData}") No Data Display !
+		.grid(ng-repeat="file in $ctrl.dashboardFile track by $index" ng-class="{displaynone:!$ctrl.hasData || !$ctrl.isTabActive(file.file_index)}")
+			div(gridster="$ctrl.gridsterOpts")
+				ul
+					li.dash-item(gridster-item="item" ng-repeat="item in file.dashboardItems" ng-class="{displaynone:!$ctrl.checkActiveFlag(item)}")
+						.title
+							.text.text-overflow-ellipsis(title="{{item.title}}") {{item.title}}
+							.settings.display-flex
+								i.mdi.mdi-calendar-blank(data-toggle="modal" data-target="#opendata_model" ng-click="$ctrl.show($event,item.temp,item.title)")
+								i.mdi.mdi-close(ng-click="$ctrl.deleteWidget($parent.$parent.$parent.$index,$index,item.id)")
+						.display-flex(id="{{item.id}}" type="{{item.type}}" style="height:100%;")
+							svg(style="height: 90%; width: 98%;")
+
+	#opendata_model.modal.fade(role="dialog")
+		.modal-dialog
+			.modal-content
+				.modal-header
+					button.close(data-dismiss="modal") &times;
+					h4.modal-title Chart
+				.modal-body
+					#chart_modal.wapper
+						.show-chart.fl-l
+							svg
+							.title {{$ctrl.title}}
+						.show-data.fl-r
+							.pad_b10
+								.show-title.text-overflow-ellipsis(ng-click="$ctrl.change_table_tab(0)" 
+								ng-class="{active:$ctrl.check_table_tab(0)}") Table Sum Data
+								.show-title.text-overflow-ellipsis(ng-click="$ctrl.change_table_tab(1)" ng-class="{active:$ctrl.check_table_tab(1)}") Table Data
+								.show-title.text-overflow-ellipsis(ng-click="$ctrl.change_table_tab(2)" ng-class="{active:$ctrl.check_table_tab(2)}") Statistic
+
+								.clear
+							.show-info
+								.table-content(ng-class="{displaynone:!$ctrl.check_table_tab(0)}")
+									table.table.table-bordered.table-hover.table-striped.table-responsive
+										thead(style="background-color: lightgrey;")
+											tr
+												th(ng-repeat="item in $ctrl.sum_table.labels track by $index") {{item}}
+										tbody
+											tr(ng-repeat="item in $ctrl.sum_table.data track by $index")
+												td {{item.label}}
+												td(ng-repeat="subitem in item.data track by $index") {{subitem}}
+							.show-info
+								.table-content(ng-class="{displaynone:!$ctrl.check_table_tab(1)}")
+									table.table.table-bordered.table-hover.table-striped.table-responsive
+										thead(style="background-color: lightgrey;")
+											tr
+												th(ng-repeat="item in $ctrl.table.label track by $index") {{item}}
+										tbody
+											tr(ng-repeat="item in $ctrl.table.data track by $index")
+												td {{item.label}}
+												td(ng-repeat="subitem in item.data track by $index") {{subitem}}
+							.show-info
+								.statistic-content(ng-class="{displaynone:!$ctrl.check_table_tab(2)}")
+									.statistic_line 
+										.statistic-title Label : 
+										.statistic-value {{$ctrl.statistic.label_title}}
+									.statistic_line 
+										.statistic-title Label Most : 
+										.statistic-value {{$ctrl.statistic.label_most}}
+									.statistic_line 
+										.statistic-title Label Most Count : 
+										.statistic-value {{$ctrl.statistic.label_most_count}}
+									.statistic_line 
+										.statistic-title Label Most Percent: 
+										.statistic-value {{$ctrl.statistic.label_most_percent}}
+									.statistic_line 
+										.statistic-title Label Least : 
+										.statistic-value {{$ctrl.statistic.label_least}}
+									.statistic_line 
+										.statistic-title Label Least Count : 
+										.statistic-value {{$ctrl.statistic.label_least_count}}
+									.statistic_line 
+										.statistic-title Label Least Percent : 
+										.statistic-value {{$ctrl.statistic.label_least_percent}}
+									.clear
+									.statistic_data
+										ul
+											li(ng-repeat="item in $ctrl.statistic.data_statistic")
+												.statistic_data_dataTitle {{item.title}}
+												.statistic_data_line
+													.statistic-title Max Value : 
+													.statistic-value {{item.max.max}}
+												.statistic_data_line
+													.statistic-title Min Value : 
+													.statistic-value {{item.min.min}}
+												.statistic_data_line
+													.statistic-title Average Value : 
+													.statistic-value {{item.avg}}
+												.clear
+
+
+						.clear
+				.modal-footer
+					button.btn.btn-default(data-dismiss="modal") Close
+					button.btn.btn-default(ng-click="$ctrl.change_sort()") change
+
+
+	#delete-file.modal.fade(role="dialog")
+		.modal-dialog
+			.modal-content
+				.modal-header
+					button.close(data-dismiss="modal") &times;
+					h4.color4a.modal-title Delete File Data
+				.modal-body
+					.main
+						h3.color4a Are you sure want to delete data of file "{{$ctrl.file_delete_name}}" from dashboard ?
+				.modal-footer
+					button.btn.btn-success(data-dismiss="modal" ng-click="$ctrl.deleteData()") Yes
+					button.btn.btn-default(data-dismiss="modal") Close

@@ -1,0 +1,31 @@
+#opendata_filter(collapse="{{$ctrl.filter_collapse}}" ng-class="{displaynone:!$ctrl.dashboard.hasData}")
+	.filter_header(ng-click="$ctrl.open_filter()" title="Filter !")
+		.main.display-flex
+			i.icon_filter.mdi.mdi-magnify.font-size-35
+			.filter_title(ng-class="{displaynone:$ctrl.filter_collapse}") Filters
+			i.icon_collapse.mdi.mdi-menu-right.font-size-35(ng-class="{displaynone:$ctrl.filter_collapse}")
+	.filter_body(ng-class="{displaynone:$ctrl.filter_collapse}")
+		ul
+			li.filter_item.mar-t10(ng-repeat="item in $ctrl.filter_items")
+				.main
+					span {{item.name}}
+					select.select2(ui-select2="$ctrl.select2Options" ng-model="item.model" ng-change="$ctrl.selected($index)" data-placeholder="Select" ng-init="All")
+						option(ng-repeat="option in item.option" value="{{option}}") {{option}}
+		ul.mar-t20
+			li.filter_item
+				.main
+					b Limit
+					select.select2(ui-select2="$ctrl.select2Options" ng-model="$ctrl.limit" data-placeholder="Limit" ng-change="$ctrl.limitProcess()")
+						option(value="-1") All
+						option(value="100") 100 Rows
+						option(value="200") 200 Rows
+						option(value="500") 500 Rows
+						option(value="1000") 1000 Rows
+		ul.mar-t20
+			li.filter_item
+				.main
+					b Sort By
+					select.select2(ui-select2="$ctrl.select2Options" ng-model="$ctrl.sort" data-placeholder="Sort By")
+						option(value="name") Name
+						option(value="col") Number of column
+

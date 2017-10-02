@@ -1,0 +1,195 @@
+@import './subheader/subheader';
+@import './sidebar/sidebar';
+@import './dashboard/dashboard';
+@import './graph/graph';
+
+#tienvn{
+	width:100%;
+	font-size:14px;
+
+	ul {
+   		margin: 0px;
+    	padding: 0px;
+	}
+
+	li {
+    	cursor: pointer;
+    	list-style: none;
+	}
+
+	a {
+    	text-decoration: none;
+	}
+
+	.wapper {
+    	width: 100%;
+	}
+
+	.main {
+    	width: 90%;
+    	margin: auto;
+	}
+
+	.main-80 {
+  		width: 80%;
+    	margin: auto;
+	}
+
+	.main-95 {
+  		width: 95%;
+    	margin: auto;
+	}
+
+	.main-70 {
+  		width: 70%;
+    	margin: auto;
+	}
+
+	.clear {
+	 	clear: both;
+	}
+	
+	.fl-l {
+	    float: left;
+	}
+	
+	.fl-r {
+	    float: right;
+	}
+	
+	.mar-b20 {
+	    margin-bottom: 20px;
+	}
+	.mar-t10{
+		margin-top:10px;
+	}
+	.mar-t20{
+		margin-top:20px;
+	}
+	.text-center {
+	    text-align: center;
+	}
+	
+	.display-flex {
+	    display: flex;
+	}
+	
+	.display-flex > span {
+	    margin-left: 10px;
+	}
+
+	.displaynone{
+		display:none;
+	}
+	
+	.font-size-24 {
+	    font-size: 24px !important;
+	}
+	.font-size-20 {
+	    font-size: 20px;
+	}
+	.font-size-35 {
+	    font-size: 35px !important;
+	}
+
+	.text-overflow-ellipsis{
+		text-overflow: ellipsis;
+    	white-space: nowrap;
+    	overflow: hidden;
+	}
+	.pad_l7{
+		padding-left:7px;
+	}
+	.pad_b10{
+		padding-bottom:10px;
+	}
+	.rotage180{
+		-ms-transform: rotate(180deg);
+    	-webkit-transform: rotate(180deg);
+    	transform: rotate(180deg);
+	}
+	
+	.modal{
+
+		.modal-header {
+    		background-color: #ececec;
+    		padding: 10px 26px;
+    	}
+
+		.modal-body{
+			border-bottom: 1px solid #ccc;
+		}
+
+		.modal-footer{
+			padding : 10px 15px;
+		}
+	}
+	
+	.color4a{
+		color : #4a4a4a;
+	}
+
+	.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+		padding : 5px;
+		text-align: center;
+	}
+
+}
+
+
+
+@media (max-width: 1280px){
+	#tienvn .main-80{width:100%;}
+	#tienvn .main-70{width:100%;}
+	#tienvn #opendata-sidebar .menu li.menu-item .main{width:90%;}
+	#tienvn .modal .modal-body {overflow: scroll;}
+	#tienvn #dashboard .show-chart {width : 60%; height: 300px; float:left;}
+	#tienvn #dashboard .show-chart svg{width : 550px; height: 300px;}
+	#tienvn #dashboard .show-data  {width:35%; float:right;}
+	#tienvn #dashboard .modal-dialog {width:auto;}
+}
+@media (max-width: 991px){
+	body{padding:0px;}
+	#tienvn .main{width:100%;}
+	#tienvn .main-80{width:100%;}
+	#tienvn .main-70{width:100%;}
+	#tienvn .modal .modal-body {overflow: scroll;}
+	#tienvn #dashboard .show-chart {width : 100%; height: 300px; float:none;}
+	#tienvn #dashboard .show-chart svg{width : 900px; height: 300px;}
+	#tienvn #dashboard .show-data  {width:100%; float:none; margin-top:50px;}
+	#tienvn #dashboard .modal-dialog {width:auto;}
+}
+@media (max-width: 880px){
+	body{padding:0px;}
+	#tienvn .main{width:100%;}
+	#tienvn .main-80{width:100%;}
+	#tienvn .main-70{width:100%;}
+	#tienvn #subheader .menu{padding:0px;}
+	#tienvn #subheader .menu li.menu-item{width : 100%; border-bottom:1px solid #fff;margin-left:0px;}
+	#tienvn #subheader .menu li.menu-item .wrap{width:50%;margin-left:25%;}
+	#tienvn .modal .modal-body {overflow: scroll;}
+	#tienvn #dashboard .show-chart {width : 100%; height: 300px; float:none;}
+	#tienvn #dashboard .show-chart svg{width : 600px; height: 300px;}
+	#tienvn #dashboard .show-data  {width:100%; float:none; margin-top:50px;}
+	#tienvn #dashboard .modal-dialog {width:auto;}
+}
+
+@media (max-width: 500px){
+	#tienvn .modal .modal-body {overflow: scroll;}
+	#tienvn #dashboard .show-chart {width : 100%; height: 300px; float:none;}
+	#tienvn #dashboard .show-chart svg{width : 450px; height: 300px;}
+	#tienvn #dashboard .show-data  {width:100%; float:none; margin-top:50px;}
+	#tienvn #dashboard .modal-dialog {width:auto;}
+}
+
+@media (max-width: 450px){
+	#tienvn #dashboard .show-chart svg{width : 400px; height: 300px;}
+}
+
+@media (max-width: 400px){
+	#tienvn #dashboard .show-chart svg{width : 350px; height: 300px;}
+}
+
+@media (max-width: 350px){
+	#tienvn #dashboard .show-chart svg{width : 300px; height: 300px;}
+}

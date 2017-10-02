@@ -1,0 +1,23 @@
+#opendata-sidebar.fl-l
+	.menu
+		ul
+			li.menu-item(ng-click="$ctrl.collapse_menu()" title="Collapse !")
+				.main
+					i.icon.mdi.mdi-refresh(ng-class="{pad_l7:$ctrl.collapse}")
+					.title(ng-class="{displaynone:$ctrl.collapse}") Collapse Menu
+					.clear
+			li.menu-item(ng-click="$ctrl.hide_submenu();$ctrl.collapse_item()" title="Upload File !")
+				.main
+					i.icon.mdi.mdi-upload(ng-class="{pad_l7:$ctrl.collapse}")
+					.title(ng-class="{displaynone:$ctrl.collapse}") Upload File
+					.clear
+					.main(ng-class="{displaynone:$ctrl.drop_down()}" ng-click="$ctrl.clear($event)")
+						.upload
+							label.file-container.text-overflow-ellipsis {{$ctrl.filename}}
+								input(type="file" name="fileupload" file-model = "$ctrl.file")
+							button.btn.btn-susscess(ng-click="$ctrl.uploadFile()") Upload
+			li.menu-item(ng-repeat="item in $ctrl.menu" ng-click="$ctrl.collapse_item()" title="{{item.title}} !")
+				.main
+					i.icon(class="{{item.icon}}" ng-class="{pad_l7:$ctrl.collapse}")
+					.title(ng-class="{displaynone:$ctrl.collapse}") {{item.title}}
+					.clear

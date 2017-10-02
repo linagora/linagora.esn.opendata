@@ -1,0 +1,69 @@
+#tienvn #subheader{
+	width : 100%;
+	height : auto;
+	background-color:#0e8df2;
+
+	.menu{
+		width : 100%;
+		padding-top:5px;
+		padding-bottom:5px;
+
+		li.menu-item{
+			color : #fff;
+			float : left;
+			padding : 10px 5px 10px 5px;
+			margin-left : 10px;
+			margin-right : 10px;
+			border-radius : 4px;
+			position : relative;
+
+			.wrap{
+				width:100%;
+				display : flex;
+
+				span{
+					margin-left : 5px;
+				}
+
+				.dropdown{
+					margin-left : 5px;
+				}
+
+				.submenu{
+					position : absolute;
+					width : 100%;
+					height : auto;
+					left : 0px;
+					top : 105%;
+					color : #4a4a4a;
+					background-color:#f0f0f0;
+					z-index: 20;
+	
+					li.submenu-item{
+						padding : 10px;
+						border-bottom : 1px solid #ccc;
+					}
+					li.submenu-item:last-child{
+						border:0px;
+					}
+					li.submenu-item:hover{
+						background-color: #ebebeb;
+    					color: #000;
+					}
+				}
+			}
+		}
+
+		li.menu-item:last-child{
+			border:0px;
+		}
+
+		li.menu-item:hover{
+			background-color : #0d7fd9;
+		}
+		li.active{
+			font-weight:bold;
+		}
+	}
+
+}
