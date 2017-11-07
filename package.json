@@ -40,9 +40,10 @@
   "dependencies": {
     "awesome-module": "1.0.0",
     "bower": "1.7.0",
+    "formidable": "1.1.1",
     "glob-all": "3.1.0",
     "moment": "2.14.1",
-    "numeral" : "2.0.6",
+    "numeral": "2.0.6",
     "express": "4.13.3",
     "i18n": "0.6.0"
   }
