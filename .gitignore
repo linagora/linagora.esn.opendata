@@ -1,0 +1,7 @@
+backend/webserver/api/opendata/file-upload
+node_modules
+frontend/components
+.idea
+*.log
+tmp
+package-lock.json

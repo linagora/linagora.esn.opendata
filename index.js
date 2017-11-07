@@ -5,8 +5,10 @@ var Dependency = AwesomeModule.AwesomeModuleDependency;
 var path = require('path');
 var glob = require('glob-all');
 var FRONTEND_JS_PATH = __dirname + '/frontend/app/';
+const MODULE_NAME = 'opendata';
+const AWESOME_MODULE_NAME = 'linagora.esn.' + MODULE_NAME;
 
-var opendataModule = new AwesomeModule('linagora.esn.opendata', {
+var opendataModule = new AwesomeModule(AWESOME_MODULE_NAME, {
   dependencies: [
     new Dependency(Dependency.TYPE_NAME, 'linagora.esn.core.logger', 'logger'),
     new Dependency(Dependency.TYPE_NAME, 'linagora.esn.core.webserver.wrapper', 'webserver-wrapper')
@@ -49,13 +51,24 @@ var opendataModule = new AwesomeModule('linagora.esn.opendata', {
       });
 
 
-      webserverWrapper.injectAngularAppModules("opendata", frontendJsFilesUri, ["linagora.esn.opendata"], ['esn'], {
+      webserverWrapper.injectAngularAppModules(MODULE_NAME, frontendJsFilesUri, [AWESOME_MODULE_NAME], ['esn'], {
         localJsFiles: frontendJsFilesFullPath
       });
-      var lessFile = path.join(FRONTEND_JS_PATH, 'app.less');
+      const lessFile = path.join(FRONTEND_JS_PATH, 'app.less');
 
-      webserverWrapper.injectLess("opendata", [lessFile], 'esn');
-      webserverWrapper.addApp('opendata', app);
+      webserverWrapper.injectLess(MODULE_NAME, [lessFile], 'esn');
+
+      const jsResourceFiles = [
+        '../components/select2/select2.js',
+        '../components/angular-gridster/dist/angular-gridster.min.js',
+        '../components/numeral/min/numeral.min.js',
+        '../components/d3/d3.min.js',
+        '../components/nvd3/build/nv.d3.min.js',
+        '../components/angular-ui-select2/src/select2.js'
+      ];
+      webserverWrapper.injectJS(MODULE_NAME, jsResourceFiles, 'esn');
+
+      webserverWrapper.addApp(MODULE_NAME, app);
 
       return callback();
     }
