@@ -1,3 +1,5 @@
+![Archived](https://img.shields.io/badge/Current_Status-archived-blue?style=flat)
+
 ## Install OpenPaaS
 
 - Check OP install documentation https://ci.linagora.com/linagora/lgs/openpaas/linagora.esn.opendata/wikis/installation
